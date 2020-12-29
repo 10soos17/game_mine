@@ -23,8 +23,6 @@ mineFont=f'{fontDir}/SSShinb7.ttf'
 #mineFont=f'{fontDir}/NanumBrush.otf'
 pygame.init()
 
-#pls.playsound(f'{effectDir}/horror.mp3', False)
-
 screen_width = 200
 screen_height = 100
 screen = pygame.display.set_mode((screen_width, screen_height))
@@ -32,7 +30,7 @@ pygame.display.set_caption("setting Q")
 clock = pygame.time.Clock()
 TEXTFONT =  pygame.font.Font(mineFont,15)
 questionList = ["Enter the number of rows","Enter the number of columns","Enter the number of mines","Game Start"]
-
+#soundList = ["mine1","mine3","mine11","mine13", "mine12"]
 def matrix_count():
 
     ti = textinput.TextInput()
@@ -43,6 +41,7 @@ def matrix_count():
     count=0
     num=[2]*3
     running = True
+    pls.playsound(f'{soundDir}/mine1.mp3', False)
     ms.play_msg(questionList[count])
     while running:
 
@@ -58,16 +57,20 @@ def matrix_count():
                 num[count] = text
                 ti.clear_text()
                 if num[0] < 1:
+                    pls.playsound(f'{soundDir}/mine2.mp3', False)
                     ms.play_msg("Please try again.")
 
                 elif num[1] < 1:
+                    pls.playsound(f'{soundDir}/mine2.mp3', False)
                     ms.play_msg("Please try again.")
 
                 elif num[0] * num[1] <= num[2] or num[2] < 1:
+                    pls.playsound(f'{soundDir}/mine2.mp3', False)
                     ms.play_msg("Please try again.")
 
                 else:
                     count+=1
+
                     ms.play_msg(questionList[count])
                     if count == 3:
                         running = False
