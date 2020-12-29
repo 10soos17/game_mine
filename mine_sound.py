@@ -11,7 +11,6 @@ from gtts import gTTS
 baseDir = os.getcwd()
 soundDir = os.path.join(baseDir, "mine_sound")
 effectDir = os.path.join(baseDir, "mine_effect")
-
 CHUNK=1024
 AUDIO = pyaudio.PyAudio()
 
@@ -41,10 +40,13 @@ def play_sound(song, replay):
 
             STREAM.write(data)
 
+            while STOP_FLAG == True:
+                STREAM.stop_stream()
+                if STOP_FLAG == False:
+                    STREAM.start_stream()
+
             data = WF.readframes(CHUNK)
 
-            if STOP_FLAG == True:
-                STREAM.stop_stream()
 
         PLAYNUM -=1
 
@@ -58,7 +60,8 @@ def play_stop(flag):
     STOP_FLAG = flag
 
 def play_restart():
-    STREAM.start_stream()
+    global STOP_FLAG
+    STOP_FLAG = False
 
 def cal_duration(song):
     args=("ffprobe","-show_entries", "format=duration","-i",song)
@@ -80,32 +83,37 @@ def play_msg(msg):
 #    tts.save(f"{effectDir}/tryagain.mp3")
 
     if msg == "Mission Failure":
-        #pls.playsound(f'{effectDir}/sinewave.mp3', False)
+        pls.playsound(f'{soundDir}/mine2.mp3', False)
         pls.playsound(f'{effectDir}/lose.mp3', False)
         duration = cal_duration(f"{effectDir}/lose.mp3")
         time.sleep(duration)
 
     elif msg == "Mission Complete":
-        #pls.playsound(f'{effectDir}/horror.mp3', False)
+        pls.playsound(f'{soundDir}/mine2.mp3', False)
         pls.playsound(f'{effectDir}/win.mp3', False)
         duration = cal_duration(f"{effectDir}/win.mp3")
         time.sleep(duration)
 
     elif msg == "Time Over":
-        #pls.playsound(f'{effectDir}/sinewave.mp3', False)
+        pls.playsound(f'{soundDir}/mine2.mp3', False)
         pls.playsound(f'{effectDir}/timeover.mp3', False)
         duration = cal_duration(f"{effectDir}/timeover.mp3")
         time.sleep(duration)
 
     elif msg == "No flags left":
-        #pls.playsound(f'{effectDir}/sinewave.mp3', False)
+        play_stop(True)
+        pls.playsound(f'{soundDir}/mine13.mp3', False)
         pls.playsound(f'{effectDir}/overflag.mp3', False)
+        duration = cal_duration(f'{soundDir}/mine13.mp3')
+        time.sleep(duration)
+        play_restart()
 
     elif msg == "Would you like to try again?":
         #pls.playsound(f'{effectDir}/sinewave.mp3', False)
         pls.playsound(f'{effectDir}/question.mp3', False)
 
     elif msg == "YES":
+        pls.playsound(f'{soundDir}/mine4.mp3', False)
         pls.playsound(f'{effectDir}/restart.mp3', False)
 
     elif msg == "NO":
@@ -118,7 +126,7 @@ def play_msg(msg):
         pls.playsound(f'{effectDir}/column.mp3', False)
 
     elif msg == "Enter the number of mines":
-        pls.playsound(f'{effectDir}/no.mp3', False)
+        pls.playsound(f'{effectDir}/minenum.mp3', False)
 
     elif msg == "Game Start":
         pls.playsound(f'{effectDir}/start.mp3', False)
