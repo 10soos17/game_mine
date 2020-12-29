@@ -16,7 +16,8 @@ lightred = (200,0,0)
 baseDir = os.getcwd()
 fontDir = os.path.join(baseDir, "mine_font")
 soundDir = os.path.join(baseDir, "mine_sound")
-effectDir = os.path.join(baseDir, "mine_effect")
+effectMineDir = os.path.join(baseDir, "mine_effect/mine")
+effectVoiceDir = os.path.join(baseDir, "mine_effect/voice")
 
 mineFont=f'{fontDir}/SSShinb7.ttf'
 #mineFont=f'{fontDir}/SangSangFlowerRoad.otf'
@@ -41,7 +42,7 @@ def matrix_count():
     count=0
     num=[2]*3
     running = True
-    pls.playsound(f'{soundDir}/mine1.mp3', False)
+    pls.playsound(f'{effectMineDir}/mine1.mp3', False)
     ms.play_msg(questionList[count])
     while running:
 
@@ -57,15 +58,15 @@ def matrix_count():
                 num[count] = text
                 ti.clear_text()
                 if num[0] < 1:
-                    pls.playsound(f'{soundDir}/mine2.mp3', False)
+                    pls.playsound(f'{effectMineDir}/mine2.mp3', False)
                     ms.play_msg("Please try again.")
 
                 elif num[1] < 1:
-                    pls.playsound(f'{soundDir}/mine2.mp3', False)
+                    pls.playsound(f'{effectMineDir}/mine2.mp3', False)
                     ms.play_msg("Please try again.")
 
                 elif num[0] * num[1] <= num[2] or num[2] < 1:
-                    pls.playsound(f'{soundDir}/mine2.mp3', False)
+                    pls.playsound(f'{effectMineDir}/mine2.mp3', False)
                     ms.play_msg("Please try again.")
 
                 else:
