@@ -21,7 +21,9 @@ baseDir = os.getcwd()
 imgDir = os.path.join(baseDir,"mine_imgs/NanumBrush") #이미지 폴더 위치 반환
 fontDir = os.path.join(baseDir, "mine_font")
 soundDir = os.path.join(baseDir, "mine_sound")
-effectDir = os.path.join(baseDir, "mine_effect")
+effectMineDir = os.path.join(baseDir, "mine_effect/mine")
+effectVoiceDir = os.path.join(baseDir, "mine_effect/voice")
+
 mineFont=f'{fontDir}/SSShinb7.ttf'
 song = f'{soundDir}/Examine_Spider Man.wav'
 replay = 'loop'
