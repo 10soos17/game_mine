@@ -10,7 +10,10 @@ from gtts import gTTS
 
 baseDir = os.getcwd()
 soundDir = os.path.join(baseDir, "mine_sound")
-effectDir = os.path.join(baseDir, "mine_effect")
+soundDir = os.path.join(baseDir, "mine_sound")
+effectMineDir = os.path.join(baseDir, "mine_effect/mine")
+effectVoiceDir = os.path.join(baseDir, "mine_effect/voice")
+
 CHUNK=1024
 AUDIO = pyaudio.PyAudio()
 
@@ -83,54 +86,55 @@ def play_msg(msg):
 #    tts.save(f"{effectDir}/tryagain.mp3")
 
     if msg == "Mission Failure":
-        pls.playsound(f'{soundDir}/mine2.mp3', False)
-        pls.playsound(f'{effectDir}/lose.mp3', False)
-        duration = cal_duration(f"{effectDir}/lose.mp3")
+        pls.playsound(f'{effectMineDir}/mine2.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/lose.mp3', False)
+        duration = cal_duration(f"{effectVoiceDir}/lose.mp3")
         time.sleep(duration)
 
     elif msg == "Mission Complete":
-        pls.playsound(f'{soundDir}/mine2.mp3', False)
-        pls.playsound(f'{effectDir}/win.mp3', False)
-        duration = cal_duration(f"{effectDir}/win.mp3")
+        pls.playsound(f'{effectMineDir}/mine2.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/win.mp3', False)
+        duration = cal_duration(f"{effectVoiceDir}/win.mp3")
         time.sleep(duration)
 
     elif msg == "Time Over":
-        pls.playsound(f'{soundDir}/mine2.mp3', False)
-        pls.playsound(f'{effectDir}/timeover.mp3', False)
-        duration = cal_duration(f"{effectDir}/timeover.mp3")
+        pls.playsound(f'{effectMineDir}/mine2.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/timeover.mp3', False)
+        duration = cal_duration(f"{effectVoiceDir}/timeover.mp3")
         time.sleep(duration)
 
     elif msg == "No flags left":
         play_stop(True)
-        pls.playsound(f'{soundDir}/mine13.mp3', False)
-        pls.playsound(f'{effectDir}/overflag.mp3', False)
-        duration = cal_duration(f'{soundDir}/mine13.mp3')
+        pls.playsound(f'{effectMineDir}/mine13.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/overflag.mp3', False)
+
+        duration = cal_duration(f'{effectMineDir}/mine13.mp3')
         time.sleep(duration)
         play_restart()
 
     elif msg == "Would you like to try again?":
         #pls.playsound(f'{effectDir}/sinewave.mp3', False)
-        pls.playsound(f'{effectDir}/question.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/question.mp3', False)
 
     elif msg == "YES":
-        pls.playsound(f'{soundDir}/mine4.mp3', False)
-        pls.playsound(f'{effectDir}/restart.mp3', False)
+        pls.playsound(f'{effectMineDir}/mine4.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/restart.mp3', False)
 
     elif msg == "NO":
-        pls.playsound(f'{effectDir}/bye.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/bye.mp3', False)
 
     elif msg == "Enter the number of rows":
-        pls.playsound(f'{effectDir}/row.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/row.mp3', False)
 
     elif msg == "Enter the number of columns":
-        pls.playsound(f'{effectDir}/column.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/column.mp3', False)
 
     elif msg == "Enter the number of mines":
-        pls.playsound(f'{effectDir}/minenum.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/minenum.mp3', False)
 
     elif msg == "Game Start":
-        pls.playsound(f'{effectDir}/start.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/start.mp3', False)
 
     elif msg == "Please try again.":
         #pls.playsound(f'{effectDir}/sinewave.mp3', False)
-        pls.playsound(f'{effectDir}/tryagain.mp3', False)
+        pls.playsound(f'{effectVoiceDir}/tryagain.mp3', False)
