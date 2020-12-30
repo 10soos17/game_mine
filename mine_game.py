@@ -113,7 +113,6 @@ def runGame():
             # 클릭 값이 지뢰인 경우, 글자 표시 및  게임 종료
             if mines[get_mine_row][get_mine_col]["hide_imgs"] == 9 and mines[get_mine_row][get_mine_col] not in yesArray:
                 game_result = "Mission Failure"
-                ms.play_stop(True)
                 ms.play_msg(game_result)
                 running = False
 
@@ -153,12 +152,10 @@ def runGame():
                     correct_count +=1
                     if correct_count == mine: # 깃발 표시 값이 지뢰이며 correct_count 값 = 지뢰수이면, 성공 메시지 & 게임 종료
                         game_result = "Mission Complete"
-                        ms.play_stop(True)
                         ms.play_msg(game_result)
                         running = False
             elif yes_count == mine: # yes_count 가 지뢰 수 같으면(깃발 표시한 것 중에 지뢰 아닌 것이 포함된 경우임), 안내 문구 표시
                 game_result = "No flags left"
-                ms.play_stop(True)
                 ms.play_msg(game_result)
                 print("limit")
 
@@ -171,7 +168,6 @@ def runGame():
         #시간 초과했다면, 메시지 표시, 게임 종료
         if total_time - elapsed_time <= 0:
             game_result = "Time Over"
-            ms.play_stop(True)
             ms.play_msg(game_result)
 
             running = False
@@ -405,7 +401,6 @@ class MineFrame():
         #left, top, width, height
 
         msg = "Would you like to try again?"
-        ms.play_stop(True)
         ms.play_msg(msg)
 
         pop_restart = pygame.Rect((screen_width//6,screen_height//4),(screen_width//1.5,screen_height//4))
@@ -462,12 +457,10 @@ class MineFrame():
                 get_y = popEvent.pos[1] + 10 #클릭된 y좌표 값
                 if yes_x_limit  >= get_x >= yes_x and yes_y_limit >= get_y >= yes_y:
                     msg = "YES"
-                    ms.play_stop(True)
                     ms.play_msg(msg)
                     popRunning = False
                 elif no_x_limit >= get_x >= no_x and no_y_limit >= get_y >= no_y:
                     msg = "NO"
-                    ms.play_stop(True)
                     ms.play_msg(msg)
                     quit()
 
