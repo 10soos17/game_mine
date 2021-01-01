@@ -6,7 +6,7 @@
 ## Object
 
 > As one of the Toy Projects, I imitated the Minesweeper game built into the Windows OS.
-> Algorithms were created directly in Python and Kibi languages.
+> Algorithms were created directly in Python and Kivy.
 > But textinput file was borrowed from external source code.
 
 ## Environment
