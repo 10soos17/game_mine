@@ -25,8 +25,7 @@ It was built on Mac OS and run on Unix systems.
 
 ## Development
 
-> I want to make the image flip more naturally. 
-> Also, I want to make the game a horror version. 
+> I want to make the image flip more naturally.
 > If you have any good ideas or improvements, please tell me.
 
 ## Video
