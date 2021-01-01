@@ -16,7 +16,10 @@ It was built on Mac OS and run on Unix systems.
 ## Requirements
 
 - python 3.7
-- pygame, pyaudio, playsound 
+- python module
+  - pygame 
+  - pyaudio
+  - playsound 
 
 - kivy
 
