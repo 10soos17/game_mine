@@ -32,4 +32,4 @@ weather API: https://openweathermap.org/api
 # Video
 Click the link to see the file structure and screen.
 
-* [App start](https://youtu.be/3BtA_apJ00k)
+* [Start the app](https://youtu.be/3BtA_apJ00k)
