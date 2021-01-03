@@ -3,7 +3,7 @@
 - Written by Soo Shin
 - email: shinsh1017@gmail.com
 
-## Object
+## Motivation
 
 > As one of the Toy Projects, I imitated the Minesweeper game built into the Windows OS.
 > Algorithms were created directly in Python and Kivy.
@@ -20,8 +20,7 @@ It was built on Mac OS and run on Unix systems.
   - pygame 
   - pyaudio
   - playsound 
-
-- kivy
+ 
 
 - weather API: https://openweathermap.org/api
 
