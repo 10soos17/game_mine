@@ -33,4 +33,4 @@ It was built on Mac OS and run on Unix systems.
 ## Video
 Click the link to see the file structure and screen.
 
-* [Start the app](https://youtu.be/3BtA_apJ00k)
+* [Video](https://youtu.be/3BtA_apJ00k)
